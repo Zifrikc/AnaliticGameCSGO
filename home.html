@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnaliticGame Home</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1713713412/R_qbysrl.png">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.91/build/spline-viewer.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="js/home.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.91/build/spline-viewer.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+                <div class="container-fluid">
+                    <a class="navbar-brand"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarsExample02">
+                        <ul class="navbar-nav me-auto">
+                        </ul>
+                        <a>
+                            <button type="button" class="btn btn-outline-light bi-box-arrow-right "> Salir</button>
+
+                    </div>
+                </div>
+            </nav>
+            <div class="col-md-2 bg-dark">
+                <aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
+                    <h2 class="h5 pt-1  mb-3 text-center text-white fw-bold">Panel Administrativo</h2>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" aria-current="page">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#home" />
+                                </svg>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#speedometer2" />
+                                </svg>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#table" />
+                                </svg>
+                                Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#grid" />
+                                </svg>
+                                Products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#people-circle" />
+                                </svg>
+                                Customers
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+
+            <div class="col-md-10 pt-3">
+                <form id="inputForm">
+                    <div class="header">
+                        <div class="header__grid">
+                            <img class="header__logo"
+                                src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1713713412/R_qbysrl.png"
+                                alt="Roboflow Inference">
+                            <div>
+                                <label class="header__label" for="model">Model</label>
+                                <input class="input" type="text" id="model" />
+                            </div>
+                            <div>
+                                <label class="header__label" for="version">Version</label>
+                                <input class="input" type="number" id="version" />
+                            </div>
+                            <div>
+                                <label class="header__label" for="api_key">API Key</label>
+                                <input class="input" type="text" id="api_key" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <div class="content__grid">
+                            <div class="col-12-s6-m4" id="method">
+                                <label class="input__label">Upload Method</label>
+                                <div>
+                                    <button data-value="upload" id="computerButton"
+                                        class="bttn left fill active">Upload</button>
+                                    <button data-value="url" id="urlButton" class="bttn right fill">URL</button>
+                                </div>
+                            </div>
+
+                            <div class="col-12-m8" id="fileSelectionContainer">
+                                <label class="input__label" for="file">Select File</label>
+                                <div class="flex">
+                                    <input class="input input--left flex-1" type="text" id="fileName" disabled />
+                                    <button id="fileMock" class="bttn right active">Browse</button>
+                                </div>
+                                <input style="display: none;" type="file" id="file" />
+                            </div>
+
+                            <div class="col-12-m8" id="urlContainer">
+                                <label class="input__label" for="file">Enter Image URL</label>
+                                <div class="flex">
+                                    <input type="text" id="url" placeholder="https://path.to/your.jpg"
+                                        class="input" /><br>
+                                </div>
+                            </div>
+
+                            <div class="col-12-m6">
+                                <label class="input__label" for="classes">Filter Classes</label>
+                                <input type="text" id="classes" placeholder="Enter class names" class="input" /><br>
+                                <span class="text--small">Separate names with commas</span>
+                            </div>
+
+                            <div class="col-6-m3 relative">
+                                <label class="input__label" for="confidence">Min Confidence</label>
+                                <div>
+                                    <i class="fas fa-crown"></i>
+                                    <span class="icon">%</span>
+                                    <input type="number" id="confidence" value="50" max="100" accuracy="2" min="0"
+                                        class="input input__icon" />
+                                </div>
+                            </div>
+                            <div class="col-6-m3 relative">
+                                <label class="input__label" for="overlap">Max Overlap</label>
+                                <div>
+                                    <i class="fas fa-object-ungroup"></i>
+                                    <span class="icon">%</span>
+                                    <input type="number" id="overlap" value="50" max="100" accuracy="2" min="0"
+                                        class="input input__icon" />
+                                </div>
+                            </div>
+                            <div class="col-6-m3" id="format">
+                                <label class="input__label">Inference Result</label>
+                                <div>
+                                    <button id="imageButton" data-value="image"
+                                        class="bttn left fill active">Image</button>
+                                    <button id="jsonButton" data-value="json" class="bttn right fill">JSON</button>
+                                </div>
+                            </div>
+                            <div class="col-12 content__grid" id="imageOptions">
+                                <div class="col-12-s6-m4" id="labels">
+                                    <label class="input__label">Labels</label>
+                                    <div>
+                                        <button class="bttn left active">Off</button>
+                                        <button data-value="on" class="bttn right">On</button>
+                                    </div>
+                                </div>
+                                <div class="col-12-s6-m4" id="stroke">
+                                    <label class="input__label">Stroke Width</label>
+                                    <div>
+                                        <button data-value="1" class="bttn left active">1px</button>
+                                        <button data-value="2" class="bttn">2px</button>
+                                        <button data-value="5" class="bttn">5px</button>
+                                        <button data-value="10" class="bttn right">10px</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" value="Run Inference" class="bttn__primary">Run Inference</button>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="bttn__primary" id="executeInferenceButton">Descargar csv</button>
+                            </div>
+                        </div>
+                        <div class="result" id="resultContainer">
+                            <div class="divider"></div>
+                            <div class="result__header">
+                                <h3 class="headline">Result</h3>
+                                <a href="#">Copy Code</a>
+                            </div>
+                            <pre id="output" class="codeblock img-fluid" /> here is your json </pre>
+                        </div>
+                        <script src="js/home.js" defer></script>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
